@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
 import useScrollProgress from "@/hooks/useScrollProgress";
-import {motion} from 'framer-motion';
+import { motion } from "framer-motion";
 
 // variants
 const variants = {
@@ -9,24 +9,31 @@ const variants = {
     opacity: 0,
   },
   visible: {
-    opacity: 1
+    opacity: 1,
   },
 };
 
-const Template = ({children}) => {
+const Template = ({ children }) => {
   const completion = useScrollProgress();
-  return <>
-    <motion.main variants={variants} initial='hidden' animate='visible'
-    transition ={{type:'linear',delay:0.2,duration:0.4}}
-    >
-      {children}
-    </motion.main>
-    {/* completion bar */}
-    <span style={{transform:`translateY(${completion - 100}%)`}}
-     className="fixed z-50 bg-primary w-1 top-0 right-0 bottom-0 
-     transition-all duration-700" ></span> 
-    <div className="h-[4000px]"></div>
-  </>
-}
+  return (
+    <>
+      <motion.main
+        variants={variants}
+        initial="hidden"
+        animate="visible"
+        transition={{ type: "linear", delay: 0.2, duration: 0.4 }}
+      >
+        {children}
+      </motion.main>
+      {/* completion bar */}
+      <span
+        style={{ transform: `translateY(${completion - 100}%)` }}
+        className="fixed z-50 bg-primary w-1 top-0 right-0 bottom-0 
+     transition-all duration-700"
+      ></span>
+      <div className="h-[4000px]"></div>
+    </>
+  );
+};
 
 export default Template;
