@@ -1,6 +1,6 @@
 "use client";
 
-import useScrollProgress from "@/hooks/useScrollProgress";
+import useScrollProgress from "../hooks/useScrollProgress";
 import { motion } from "framer-motion";
 
 // variants
